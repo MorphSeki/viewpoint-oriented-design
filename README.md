@@ -105,8 +105,12 @@ Tick 内で合成されて世界が再構成されます。
 ---
 
 # 7. ライセンス  
-- Source code: MIT License  
-- Documentation (docs/): CC BY-NC-SA 4.0  
+This project is dual-licensed:
+Logic & Source Code: MIT License
+Design Specification & Philosophy (docs/): CC BY-NC-SA 4.0
+
+[!IMPORTANT]
+The core concept of Viewpoint-Oriented Design (VOD) is intended to be an open standard, but the specific documentation and philosophical texts are protected to maintain the integrity of the design's origin.
 ---
 
 # 8. 作者  
