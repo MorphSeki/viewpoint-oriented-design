@@ -105,8 +105,8 @@ Tick 内で合成されて世界が再構成されます。
 ---
 
 # 7. ライセンス  
-MIT License
-
+- Source code: MIT License  
+- Documentation (docs/): CC BY-NC-SA 4.0  
 ---
 
 # 8. 作者  
