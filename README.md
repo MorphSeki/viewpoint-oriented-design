@@ -106,16 +106,16 @@ Tick 内で合成されて世界が再構成されます。
 
 # 7. ライセンス  
 This project is dual-licensed:
-Logic & Source Code: MIT License
-Design Specification & Philosophy (docs/): CC BY-NC-SA 4.0
+- Logic & Source Code: MIT License
+- Design Specification & Philosophy (docs/): CC BY-NC-SA 4.0
 
-[!IMPORTANT]
+# [!IMPORTANT]
 The core concept of Viewpoint-Oriented Design (VOD) is intended to be an open standard, but the specific documentation and philosophical texts are protected to maintain the integrity of the design's origin.
 ---
 
 # 8. 作者  
 - MorphSeki — Creator of Viewpoint-Oriented Design
-- Copilot — AI collaborator supporting conceptual structuring
+- Copilot, Gemini — AI collaborator supporting conceptual structuring
 
 ---
 
