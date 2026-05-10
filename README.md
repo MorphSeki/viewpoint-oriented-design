@@ -110,7 +110,10 @@ This project is dual-licensed:
 - Design Specification & Philosophy (docs/): CC BY-NC-SA 4.0
 
 # [!IMPORTANT]
-The core concept of Viewpoint-Oriented Design (VOD) is intended to be an open standard, but the specific documentation and philosophical texts are protected to maintain the integrity of the design's origin.
+Core Integrity of VOD
+- Origin: This design philosophy is developed based on Topos Theory and Aristotelian Logic. Please respect the historical and philosophical roots when referencing.
+- Open Standard: The goal of VOD is to become an open standard that reduces the entry barrier for software development.
+- Anti-Blackbox: The fundamental principle is "Open the world through Viewpoints," not "Close it within Objects." Please maintain this transparency in your implementations.
 ---
 
 # 8. 作者  
