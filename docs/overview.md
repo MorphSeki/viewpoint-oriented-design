@@ -338,3 +338,26 @@ This guarantees:
 - Stable multi-world architecture  
 
 ---
+
+## 7. Metaphor: Local Sovereigns  
+After understanding the full structure of VOD,  
+one intuitive metaphor becomes helpful.
+
+Each viewpoint behaves like a **local sovereign**:
+
+- It is absolute within its own world  
+- It does not interfere with other worlds  
+- Worlds do not form a hierarchy  
+- When worlds interact, a temporary order emerges  
+- When the interaction ends, the order dissolves and each world returns to independence  
+
+This metaphor captures the essence of VOD:
+
+- Non‑hierarchical structure  
+- Local sovereignty  
+- One‑way meaning flow  
+- Ephemeral composition order  
+- No mixing between worlds  
+
+---
+
