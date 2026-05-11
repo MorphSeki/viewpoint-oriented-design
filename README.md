@@ -140,3 +140,7 @@ CC BY-NC-SA 4.0 (documentation)
 ## **Author**
 - MorphSeki — Creator of Viewpoint-Oriented Design
 - Copilot, Gemini — AI collaborator supporting conceptual structuring
+
+## Contact
+For inquiries, discussions, or collaboration:
+**morphseki@proton.me**
