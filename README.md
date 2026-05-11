@@ -1,120 +1,142 @@
-# 観点指向設計（Viewpoint-Oriented Design）  
-**Minimum Core Specification**
 
-観点指向設計（VOD）は、  
-**世界を複数の局所世界（観点）として分割し、  
-それらを射（関係）で接続し、  
-毎フレーム再構成する OS 的設計手法**です。
+# **Viewpoint-Oriented Design (VOD)**  
+*A structural framework for building consistent world models through viewpoint separation and meaning-preserving transformations.*
 
-OOP のように「オブジェクトを中心に世界を閉じる」のではなく、  
-**観点（Viewpoint）を中心に世界を開く**ことを目的とします。
+## **Why VOD?**
+Modern software and AI systems suffer from:
 
----
+- Mixed meanings inside a single module  
+- Implicit world models hidden in code  
+- Unstable transformations between subsystems  
+- Hallucination-like behavior caused by semantic collisions  
+- Difficulty integrating AI with traditional software  
 
-# 1. 観点（Viewpoint）とは何か  
-観点とは **局所的に完結した“世界の切り取り”** です。
+These problems come from one root cause:
 
-最小コアでは、観点は次の3つの局所世界で構成されます。
+> **The world is not cut into consistent pieces.**
 
-### ■ State View  
-世界の「現在の形」。  
-例：LineTrace の Hit/NoHit、Aiming の ForwardVector。
-
-### ■ Action View  
-世界を「どう変えるか」。  
-例：Trace()、UpdateAim()。
-
-### ■ Context View  
-世界を構成するための外部条件。  
-例：CameraRotation、Start/Direction/MaxDistance。
-
-この3つが揃うと **1つの観点（local world）** が成立します。
+VOD provides a formal way to *slice the world* into coherent local models.
 
 ---
 
-# 2. 射（Morphisms）  
-観点同士は **射（関係）** によって接続されます。
+## **Core Concepts**
 
-最小コアでは、次の3種類の射だけを定義します。
+### **1. Viewpoint — a Local World Model**
+A *viewpoint* is not a responsibility, not a property subset, and not a UI view.  
+It is a **self-consistent local world model**.
 
-### ■ 射1：State ← Action  
-Action が State を更新する。
+Each viewpoint defines:
 
-### ■ 射2：Action ← Context  
-Context が Action の入力を決める。
+- Its own meaning structure  
+- Its own rules  
+- Its own interpretation of data  
 
-### ■ 射3：State ← Context  
-Context が State の初期条件を決める。
+Two viewpoints may use the same word but mean different things.  
+This is intentional.
 
-これだけで観点ネットワークが成立します。
+### **2. Morphism — Meaning Transformation**
+A *morphism* converts the meaning of one viewpoint into another.
+
+- It is not a data mapping  
+- It is a **semantic transformation**  
+- It preserves the internal consistency of each viewpoint  
+- It defines how local world models interact  
+
+This mirrors how AI models internally use embeddings and projections.
+
+### **3. Carrier — A Meaningless Container**
+A *carrier* (often a “character” in game examples) is:
+
+- A container of composed results  
+- A place where multiple viewpoints’ outputs appear  
+- **Not** a holder of meaning  
+- **Not** a world model  
+
+It is a display surface, not a source of truth.
 
 ---
 
-# 3. 観点合成（Viewpoint Composition）  
-観点指向設計の中心にあるのは **合成（Composition）** です。
-
-最小コアでは、合成規則は1つだけです。
-
+## **How VOD Works**
 ```
-Context → Action → State
+[Viewpoint A] --morphism--> [Viewpoint B]
+       \                     /
+        \                   /
+         ---- compose ----> [Carrier]
 ```
 
-この射の連鎖が **1フレームの世界再構成**を表します。  
-Unreal Engine の Tick と自然に一致します。
+- Viewpoints stay independent  
+- Morphisms connect them  
+- Carrier shows the combined result  
+- Meaning never flows backward into viewpoints  
+
+This prevents semantic collisions and keeps world models clean.
 
 ---
 
-# 4. 観点指向設計の目的  
-観点指向設計は次の問題を構造的に解決します。
+## **Why VOD Matters for AI**
+VOD aligns naturally with AI architecture:
 
-- null の構造的排除  
-- 世界の局所化（ブラックボックス化の回避）  
-- 観点ごとの責務分離  
-- 世界の再構成による安定性  
-- OOP の「肥大化したクラス」問題の解消  
-- Tick ベースのゲームエンジンとの高い親和性  
+- Viewpoints = local embedding spaces  
+- Morphisms = projection layers  
+- Carrier = output surface  
+- Viewpoint OS (i/e/ku) = inference routing  
 
----
-
-# 5. 最小実装例（UE5）  
-観点指向設計は、Unreal Engine 5 の Tick モデルと非常に相性が良いです。
-
-例として、以下の2つの観点を実装しています。
-
-- LineTrace Viewpoint  
-- Aiming Viewpoint  
-
-各観点は State / Action / Context の3分割で構成され、  
-Tick 内で合成されて世界が再構成されます。
-
-実装例は `examples/` と `ue5-implementation/` に含まれます。
+This structure reduces ambiguity, stabilizes reasoning, and can enable **significant model compression** by reducing redundant semantic space.
 
 ---
 
-# 6. 観点指向設計の拡張性  
-最小コアは非常に小さく、次のように拡張できます。
+## **Minimal Example (Pseudo-code)**
 
-- 観点の階層化  
-- 観点ネットワークの自動合成  
-- トポス論との接続（局所世界の貼り合わせ）  
-- YAML による観点仕様  
-- 観点 OS（Viewpoint Operating System）としての一般化  
+```ts
+// Viewpoint: Physics
+class PhysicsViewpoint {
+  velocity: Vector2
+  update(dt) { /* physics logic */ }
+}
 
-これらは今後のバージョンで追加されます。
+// Viewpoint: AI Intent
+class AIViewpoint {
+  desiredSpeed: number
+  decide() { /* behavior logic */ }
+}
+
+// Morphism: AI → Physics
+function intentToPhysics(ai: AIViewpoint): PhysicsViewpoint {
+  return new PhysicsViewpoint({ velocity: fromSpeed(ai.desiredSpeed) })
+}
+
+// Carrier: Character
+class Character {
+  physics: PhysicsViewpoint
+  ai: AIViewpoint
+
+  update(dt) {
+    this.ai.decide()
+    this.physics = intentToPhysics(this.ai)
+    this.physics.update(dt)
+  }
+}
+```
 
 ---
 
-# 7. ライセンス  
-- Source code: MIT License  
-- Documentation (docs/): CC BY-NC-SA 4.0  
+## **What VOD Enables**
+- Stable world-model construction  
+- Clear separation of meaning  
+- Predictable transformations  
+- AI-friendly architecture  
+- Modular inference  
+- Reduced semantic collisions  
+- Cleaner integration between AI and traditional code  
+
 ---
 
-# 8. 作者  
+## **License**
+MIT License (code)  
+CC BY-NC-SA 4.0 (documentation)
+
+---
+
+## **Author**
 - MorphSeki — Creator of Viewpoint-Oriented Design
-- Copilot — AI collaborator supporting conceptual structuring
-
----
-
-# 9. コントリビューション  
-観点指向設計はまだ発展途上の概念です。  
-Issue や PR による議論・改善を歓迎します。
+- Copilot, Gemini — AI collaborator supporting conceptual structuring
