@@ -132,10 +132,16 @@ class Character {
 
 ---
 
+<<<<<<< HEAD
 ## **License**
 MIT License (code)  
 CC BY-NC-SA 4.0 (documentation)
 
+=======
+# 7. ライセンス  
+- Source code: MIT License  
+- Documentation (docs/): CC BY-NC-SA 4.0  
+>>>>>>> 738c9a7 (Revise license details in README)
 ---
 
 ## **Author**
