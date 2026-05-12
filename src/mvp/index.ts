@@ -1,4 +1,4 @@
-console.log("VOD MVP start");
+console.log("VOD MVP start..");
 // ===== Viewpoint =====
 type Viewpoint<T> = {
   state: T;
