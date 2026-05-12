@@ -131,8 +131,8 @@ class Character {
 ---
 
 ## **License**
-MIT License (code)  
-CC BY-NC-SA 4.0 (documentation)
+- MIT License (code)  
+- CC BY-NC-SA 4.0 (documentation)
 ---
 
 ## **Author**
