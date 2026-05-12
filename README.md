@@ -139,9 +139,18 @@ CC BY-NC-SA 4.0 (documentation)
 
 =======
 # 7. ライセンス  
+<<<<<<< HEAD
 - Source code: MIT License  
 - Documentation (docs/): CC BY-NC-SA 4.0  
 >>>>>>> 738c9a7 (Revise license details in README)
+=======
+This project is dual-licensed:
+Logic & Source Code: MIT License
+Design Specification & Philosophy (docs/): CC BY-NC-SA 4.0
+
+[!IMPORTANT]
+The core concept of Viewpoint-Oriented Design (VOD) is intended to be an open standard, but the specific documentation and philosophical texts are protected to maintain the integrity of the design's origin.
+>>>>>>> ee180e0 (Update licensing section in README.md)
 ---
 
 ## **Author**
