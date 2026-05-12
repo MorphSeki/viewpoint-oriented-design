@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # **Viewpoint-Oriented Design (VOD)**  
 *A structural framework for building consistent world models through viewpoint separation and meaning-preserving transformations.*
@@ -144,3 +145,7 @@ CC BY-NC-SA 4.0 (documentation)
 ## Contact
 For inquiries, discussions, or collaboration:
 **morphseki@proton.me**
+=======
+# viewpoint-oriented-design
+A viewpoint‑oriented framework for consistent world‑model design.
+>>>>>>> 35fafda (Initial commit)
