@@ -1,0 +1,41 @@
+# License for the lab/ Directory
+
+The `lab/` directory contains experimental code, notes, conceptual fragments,
+and other non-final materials. Because this directory mixes code and
+non-code artifacts, the licensing rules are defined separately as follows:
+
+---
+
+## 1. License for Code in lab/
+All source code files within the `lab/` directory (e.g., `.ts`, `.js`, `.cpp`,
+`.h`, `.py`, `.json`, `.toml`, `.yaml`, etc.) are licensed under the MIT License,
+consistent with the rest of the repository's source code.
+
+This ensures that experimental code remains lightweight, reusable, and
+compatible with the repository's main implementation layer.
+
+---
+
+## 2. License for Non-Code Materials in lab/
+All non-code materials within the `lab/` directory — including but not limited to:
+
+- Research notes  
+- Conceptual fragments  
+- Explanations and textual descriptions  
+- Diagrams and sketches  
+- Experimental specifications  
+- Any other non-source-code artifacts  
+
+are licensed under the Creative Commons
+Attribution–NonCommercial–ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
+
+This protects exploratory ideas and documentation from commercial reuse while
+allowing sharing and derivative works under the same conditions.
+
+---
+
+## 3. Reference
+For details of the CC BY-NC-SA 4.0 license, see:
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+For details of the MIT License, see the repository root `LICENSE` file.
